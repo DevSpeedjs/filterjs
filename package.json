@@ -1,0 +1,32 @@
+{
+  "name": "devspeed-filterjs",
+  "version": "1.1.17",
+  "description": "filter.js is an javaScript library that makes it easy to filter User inputs.",
+  "main": "lib/filter.js",
+  "types": "./lib/filter.d.ts",
+  "scripts": {
+    "test": "tsc && node test.js"
+  },
+
+
+ "repository": {
+    "type": "git",
+     "url": "https://github.com/DevSpeedjs/DevSpeed-filterjs"
+  },
+
+
+  "keywords": [
+    "bad words", 
+    "filter-js", 
+    "JavaScript",
+    "bad-words",
+    "censor",
+    "cuss word blocker",
+    "swear word blocker"
+  ],
+  "author": "SilentWolf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevSpeedjs/DevSpeed-filterjs/issues"
+  }
+}
