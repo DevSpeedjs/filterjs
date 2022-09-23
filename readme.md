@@ -46,7 +46,8 @@ const message = new FilterText({
 message.censor('some texts') // returns some texts
 ```
 
-> To prevent Text from overriding global you can `options.override` to false.
+> To prevent Text from overriding globaly you can set `options.override` to false.
+
 ```js
 const newMessage = message.censor("some curse words", {override: false})
 ```
