@@ -1,10 +1,11 @@
-const { FilterText} = require('./lib/filter.js')
+const {TextFilter} = require('./lib/filter.js')
 
 
 
 
-const filter = new FilterText({
+const filter = new TextFilter({
     text: "fuck you"
 })
+console.log(filter.censor('hi fucker', {override: false}))
 
-console.log(filter.censor())
+console.log(filter.text)

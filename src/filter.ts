@@ -6,16 +6,28 @@ interface FilterTextOptions {
       DisableBlackList?: Boolean,
 }
 
+interface censorOptions{
+  override?: Boolean,
+}
 
-export class FilterText {
+export class TextFilter {
       public options?: FilterTextOptions;
-      text: string | null
+      text: string | null;
+      private override: boolean;
 
       constructor(options?: FilterTextOptions) {
         this.text = options?.text || null;
+        this.override = true;
       }
 
-    censor(text?: string | undefined){
+    censor(text?: string | undefined, options?: censorOptions){
+      
+      if(options?.override === true){
+        this.text = text as string
+      }else {
+        this.override = false;
+      }
+
       if(this.options?.DisableBlackList == true) return null;
 
       const blacklistwords = [...badwords]
@@ -46,7 +58,6 @@ export class FilterText {
       })
       
     }
-
 
 }
 
