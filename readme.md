@@ -2,17 +2,21 @@
 
 This package has been fully re-created the documentation below will help you with the new syntax.
 
-Filter is an utilty package that will help with filtering user inputs so string, arrays and maybe event numbers as this package expands more features will be added. Filterjs have a built **banword** censory system.
+Filter is an utilty package that can help you filter user inputs such strings, arrays and maybe even numbers as the package expands more features will be added. Filterjs have a built **blacklist word** censory system.
 
 ## Quick start
-```js
-const {FilterText} = require('devspeed-filterjs');
 
-const message = new FilterText({
-  text: "some text goes to her", // Set the text value
-  disableBlackList:  false; // Default this is set to false,
-  customBlacklist: ['foo', 'aah'], // create a custom blacklist 
+```js
+
+const {TextFilter} = require('devspeed-filterjs');
+
+const message = new TextFilter({
+  text: "some text goes to her", // set the text that is being manipulated
+  disableBlackList:  false; // set to false by default, 
+  customBlacklist: ['foo', 'aah'], // create the custom blacklist,
 })
+
+
 ```
 
 ### blacklist
@@ -39,7 +43,7 @@ message.censor() // filters
 
 ```js
 
-const message = new FilterText({
+const message = new TextFilter({
   text: "some texts curse words", // ruturns some texts **** *****
 })
 
