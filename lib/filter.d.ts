@@ -1,6 +1,5 @@
 interface FilterTextOptions {
     text?: string;
-    blacklist?: string;
     textoveride?: boolean;
     DisableBlackList?: Boolean;
     customBlacklist?: string[];
