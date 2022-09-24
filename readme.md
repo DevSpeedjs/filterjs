@@ -67,7 +67,7 @@ const filter = new TextFilter({
 console.log(filter.censor())// returns "shut the **** up"
 console.log(filter.text) // returns "shut the **** up"
 ``` 
-> `textoverride` determines wheater the `censor()` function should set the filtered Text globaly.
+> `textoverride` determines if the `censor()` function should filter the text globaly.
 
 
 
