@@ -1,17 +1,16 @@
 interface FilterTextOptions {
     text?: string;
     blacklist?: string;
+    textoveride?: boolean;
     DisableBlackList?: Boolean;
-}
-interface censorOptions {
-    override?: Boolean;
+    customBlacklist?: string[];
 }
 export declare class TextFilter {
-    options?: FilterTextOptions;
+    options?: FilterTextOptions | null;
     text: string | null;
-    private override;
     constructor(options?: FilterTextOptions);
-    censor(text?: string | undefined, options?: censorOptions): string | void | null;
+    censor(text?: string | undefined): string | null;
+    private censorText;
 }
 export {};
 //# sourceMappingURL=filter.d.ts.map

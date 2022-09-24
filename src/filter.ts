@@ -1,63 +1,53 @@
 import { badwords } from "./badword";
 
 interface FilterTextOptions {
-      text?: string,
-      blacklist?: string
-      DisableBlackList?: Boolean,
+  text?: string,
+  textoveride?: boolean,
+  DisableBlackList?: Boolean,
+  customBlacklist?: string[],
 }
 
-interface censorOptions{
-  override?: Boolean,
-}
 
 export class TextFilter {
-      public options?: FilterTextOptions;
+      public options?: FilterTextOptions| null;
       text: string | null;
-      private override: boolean;
 
       constructor(options?: FilterTextOptions) {
         this.text = options?.text || null;
-        this.override = true;
+        this.options = options;
       }
 
-    censor(text?: string | undefined, options?: censorOptions){
-      
-      if(options?.override === true){
-        this.text = text as string
-      }else {
-        this.override = false;
-      }
-
-      if(this.options?.DisableBlackList == true) return null;
-
+    censor(text?: string | undefined){
+    
+      const gtext: string  = text || this.text as string;
+      if(this.options?.DisableBlackList === true) return this.text;
       const blacklistwords = [...badwords]
-      const reg = new RegExp(blacklistwords.join("|"), "gm")
-       
-      if(text) { 
-        return text?.replace(reg, (match)=>{
-          let stars = '';
-          for (var i = 0; i < match.length; i++) {
-              stars += '*';
-            }
-            return stars;
-        })
-      }
-       
-      if(this.text === undefined) { return console.error("Text is not defined")}
 
-      if(this.text === null) return null;
-      
-      return this.text?.replace(reg, (match) => {
-          let stars = ''
-          let postion: any;
-          for (let i = 0; i < match.length; i++) {
-             stars += '*' 
-          }
-      
-          return stars; 
-      })
-      
+
+      let customblacklist = this.options?.customBlacklist;
+
+      if(typeof customblacklist !== "undefined" && Array.isArray(customblacklist) && customblacklist.length > 0){
+        const customfilteredtext = this.censorText(gtext, customblacklist);
+   
+        if(this.options?.textoveride == true) this.text = customfilteredtext;
+        return customfilteredtext;
+      }
+      let filtertext  = this.censorText(gtext, blacklistwords)
+      if(this.options?.textoveride == true) this.text = filtertext;
+      return filtertext;
     }
+
+    private censorText(text: string, blacklistwords: string[],){
+      const reg = new RegExp(blacklistwords.join("|"), 'gm')
+      return text.replace(reg, (match)=>{
+        let stars = '';
+        for (var i = 0; i < match.length; i++) {
+            stars += '*';
+          }
+          return stars;
+      })
+    }
+  
 
 }
 

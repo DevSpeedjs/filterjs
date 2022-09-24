@@ -2,7 +2,7 @@
 
 This package has been fully re-created the documentation below will help you with the new syntax.
 
-Filter is an utilty package that can help you filter user inputs such strings, arrays and maybe even numbers as the package expands more features will be added. Filterjs have a built **blacklist word** censory system.
+Another package for filtering text and curse words from user texts 
 
 ## Quick start
 
@@ -11,7 +11,7 @@ Filter is an utilty package that can help you filter user inputs such strings, a
 const {TextFilter} = require('devspeed-filterjs');
 
 const message = new TextFilter({
-  text: "some text goes to her", // set the text that is being manipulated
+  text: "shut the fook up", // set the text that is being manipulated
   disableBlackList:  false; // set to false by default, 
   customBlacklist: ['foo', 'aah'], // create the custom blacklist,
 })
@@ -36,22 +36,39 @@ const message = new TextFilter({
 > checks if the message has a blacklist and censor it like this  ****.  note that this package already have default blacklist  words if you want to see what it looks like **click here** 
 
 ```js
-message.censor() // filters 
-```
-
-> You can `override` the text that is being filtered if you set it with the `FilterText` class example below
-
-```js
-
-const message = new TextFilter({
-  text: "some texts curse words", // ruturns some texts **** *****
+const mystr = new TextFilter({
+  text: "shut the fook up", 
 })
 
-message.censor('some texts') // returns some texts
+mystr.censor() // returns shut the **** up
+// or
+mystr.censor("fuck you")  // returns **** you
 ```
 
-> To prevent Text from overriding globaly you can set `options.override` to false.
+> if you want your `text` to be censored globaly. You can use `option textoveride` see below for example
+
+### before
+
+```js 
+const filter = new TextFilter({
+  text: "shut the fook up", 
+})
+
+console.log(filter.censor())// returns "shut the **** up"
+console.log(filter.text) // returns "shut the fook up"
+```
+### after
 
 ```js
-const newMessage = message.censor("some curse words", {override: false})
-```
+const filter = new TextFilter({
+  text: "shut the fook up",
+  textoveride: true, // set to false by default
+})
+console.log(filter.censor())// returns "shut the **** up"
+console.log(filter.text) // returns "shut the **** up"
+``` 
+> `textoverride` determines wheater the `censor()` function should set the filtered Text globaly.
+
+
+
+
