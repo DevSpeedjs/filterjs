@@ -2,7 +2,7 @@
 
 This package has been fully re-created the documentation below will help you with the new syntax.
 
-Another package for filtering text and curse words from user texts 
+Another package for filtering text and curse words. 
 
 ## Quick start
 
