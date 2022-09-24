@@ -12,8 +12,8 @@ const {TextFilter} = require('devspeed-filterjs');
 
 const message = new TextFilter({
   text: "shut the fook up", // set the text that is being manipulated
-  disableBlackList:  false; // set to false by default, 
-  customBlacklist: ['foo', 'aah'], // create the custom blacklist,
+  disableBlackList:  false, // set to false by default.
+  customBlacklist: ['foo', 'aah'], // create the custom blacklist.
 })
 
 
@@ -25,11 +25,11 @@ const message = new TextFilter({
 
 ### customBlacklist 
 
- > The `customBlacklist` allows you to add your own custom **blacklist** words.
+> The `customBlacklist` allows you to create your own custom **blacklist** words this will override the default blacklist and create a new one.
  
 ### disableBlacklist
 
-> The  `disableblacklist`  disables the blacklist functionality  which means the `censor()` function won't work
+> The  `disableblacklist`  disables the blacklist functionality  which means the `censor()` function won't filter the text it will just return the text as it was.
 
 
 ## censor Function
