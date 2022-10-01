@@ -2,6 +2,7 @@ interface FilterTextOptions {
     text?: string;
     textoveride?: boolean;
     DisableBlackList?: Boolean;
+    placeholder?: string;
     customBlacklist?: string[];
 }
 export declare class TextFilter {
