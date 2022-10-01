@@ -59,13 +59,42 @@ console.log(filter.text) // returns "shut the fook up"
 ```js
 const filter = new TextFilter({
   text: "shut the fook up",
-  textoveride: true, // set to false by default
+  textoveride: true, // false by default
 })
 console.log(filter.censor())// returns "shut the **** up"
 console.log(filter.text) // returns "shut the **** up"
 ``` 
 > `textoverride` determines if the `censor()` function should filter the text globaly.
 
+## hasblacklist()
 
+> The `hasblacklist()` function checks a string and determines whether it contains a blacklist strings and return `true` or `false`
+
+```js
+const filter = new TextFilter({
+  text: "shut the fuk up",
+})
+
+console.log(filter.hasblacklist())  // returns true 
+```
+> another way that you can use the `hasblacklist` function is passing a string as the first parameter.
+
+```js
+ console.log(filter.hasblacklist("some text"))
+```
+more example 
+
+```js
+filter.hasblacklist("fuk jake",(results, match, text)=>{
+  // results returns true are false
+ // match returns an array with the blacklistword that was found in the text
+
+  if(results) {
+    console.log(result) // true
+    console.log(match) // ["fuk"]
+    console.log(text) //  fuk jake
+  }
+})
+```
 
 

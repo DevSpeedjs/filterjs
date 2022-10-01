@@ -10,6 +10,8 @@ export declare class TextFilter {
     constructor(options?: FilterTextOptions);
     censor(text?: string | undefined): string | null;
     private censorText;
+    private _checkTextForBlacklist;
+    hasblacklist(text: string, callback?: (result: boolean, blacklist: string[], text: string) => {}): boolean;
 }
 export {};
 //# sourceMappingURL=filter.d.ts.map
