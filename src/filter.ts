@@ -4,7 +4,7 @@ interface FilterTextOptions {
   text?: string,
   textoveride?: boolean,
   DisableBlackList?: Boolean,
-  cleanWith?: string,
+  censorWith?: string,
   customBlacklist?: string[],
 }
 
@@ -49,7 +49,7 @@ export class TextFilter {
     return text.replace(reg, (match) => {
       let stars = '';
       for (var i = 0; i < match.length; i++) {
-        stars += this.options?.cleanWith || "*";
+        stars += this.options?.censorWith || "*";
       }
       return stars;
     })

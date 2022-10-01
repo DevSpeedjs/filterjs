@@ -18,13 +18,13 @@ const message = new TextFilter({
 
 
 ```
-### cleanwith
-> The `cleanWith` option allow to change the default **replacer** to what ever you like.
+### censorWith
+> The `censorWith` option allow to you change the default **replacer** to what ever you like.
 
 ```js
 const message = new TextFilter({
   text: "hello 'badword'",
-  cleanWith: "#"
+  censorWith: "#"
 })
 
 message.censor()  // returns hello ######

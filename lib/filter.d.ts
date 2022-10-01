@@ -2,7 +2,7 @@ interface FilterTextOptions {
     text?: string;
     textoveride?: boolean;
     DisableBlackList?: Boolean;
-    placeholder?: string;
+    censorWith?: string;
     customBlacklist?: string[];
 }
 export declare class TextFilter {
