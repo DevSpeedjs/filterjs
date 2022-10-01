@@ -19,9 +19,6 @@ const message = new TextFilter({
 
 ```
 
-### blacklist
-
->  The blacklist words are the words that are not allowed in the text that is being filtered.
 
 ### customBlacklist 
 
@@ -29,11 +26,11 @@ const message = new TextFilter({
  
 ### disableBlacklist
 
-> The  `disableblacklist`  disables the blacklist functionality  which means the `censor()` function won't filter the text it will just return the text as it was.
+> The  `disableblacklist`  disables the blacklist functionality  which means the `censor()` function won't filter the text. it will just return the text.
 
 
 ## censor Function
-> checks if the message has a blacklist and censor it like this  ****.  note that this package already have default blacklist  words if you want to see what it looks like **click here** 
+> checks if the text have any blacklist words in it. note that this package already have default blacklist  words if you want to see what it looks like **click here** 
 
 ```js
 const mystr = new TextFilter({
