@@ -26,14 +26,14 @@ export class TextFilter {
     }
   }
 
-  censor(text?: string | undefined) {
+  censor(text?: string | null) {
     if(!text && !this.text) throw new Error ("censor is defined but Doesn't have a Text value");
-    if(typeof text !== "string") throw new Error(`Type string is Expected for text instead got ${typeof text}`);
 
     const gtext: string = text || this.text as string;
+    if(typeof gtext !== "string") throw new Error(`Type string is Expected for text instead got ${typeof text}`);
     if (this.options?.DisableBlackList === true) return this.text;
 
-
+  
     let blacklist = this.options?.customBlacklist || badwords;
 
     const filteredtext = this.censorText(gtext, blacklist);

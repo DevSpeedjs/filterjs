@@ -9,7 +9,7 @@ export declare class TextFilter {
     options?: FilterTextOptions | null;
     text: string | null;
     constructor(options?: FilterTextOptions);
-    censor(text?: string | undefined): string | null;
+    censor(text?: string | null): string | null;
     private censorText;
     private _checkTextForBlacklist;
     hasblacklist(text: string, callback?: (result: boolean, blacklist: string[], text: string) => {}): boolean;
